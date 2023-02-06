@@ -34,19 +34,15 @@ public class Main {
                             break;
                         case 2:
                             remove();
-                            // todo: обрабатываем пункт меню 2: Удалить задачу
                             break;
                         case 3:
                             getAllByDate(getTaskHashMap(), inputDate());
-                            // todo: обрабатываем пункт меню 3: Получить задачу на указанный день
                             break;
                         case 4:
                             getRemovedTasks();
                             break;
                         case 5:
-                            for (Map.Entry<Integer, Task> task : getTaskHashMap().entrySet()) {
-                                System.out.println(" " + task.getValue());
-                            }
+                            getAllTasks();
                             break;
                         case 0:
                             break label;
