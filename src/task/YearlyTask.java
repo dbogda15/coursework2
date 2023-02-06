@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class YearlyTask extends Task {
     private final Integer id;
-
     public YearlyTask(Type type, LocalDate dateTime, String title, String description) {
         super(type, dateTime, title, description);
         this.id = idGenerator;
@@ -17,10 +16,9 @@ public class YearlyTask extends Task {
 
     @Override
     public String toString() {
-        return  "Yearly task №" + id + ". Title: " + getTitle() +
+        return  "Yearly task. ID = " + id + ". Title: " + getTitle() +
                 "\n Description: " + getDescription() +
                 "\n Date: " + getDateTime().getDayOfMonth() + " " + getDateTime().getMonth() +
                 "\n Type of task: " + getType().getType() + "\n--------------------";
-
     }
 }

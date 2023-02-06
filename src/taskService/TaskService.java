@@ -43,11 +43,11 @@ public class TaskService {
 
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Enter the title of your task: ");
-        String taskName = scanner1.next();
+        String taskName = scanner1.nextLine();
 
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Enter the description of your task: ");
-        String taskDescription = scanner2.next();
+        String taskDescription = scanner2.nextLine();
 
         Scanner scanner3 = new Scanner(System.in);
         System.out.print("Please, enter the date in the format dd.MM.yyyy :");
@@ -66,10 +66,10 @@ public class TaskService {
                 add(new OneTimeTask(taskType, parse, taskName, taskDescription));
                 break;
             case 2:
-               add(new DailyTask(taskType, parse, taskName, taskDescription));
+                add(new DailyTask(taskType, parse, taskName, taskDescription));
                 break;
             case 3:
-               add(new WeeklyTask(taskType, parse, taskName, taskDescription));
+                add(new WeeklyTask(taskType, parse, taskName, taskDescription));
                 break;
             case 4:
                 add(new MonthlyTask(taskType, parse, taskName, taskDescription));
@@ -82,10 +82,8 @@ public class TaskService {
             }
         }
 
-        for (Map.Entry<Integer, Task> task : getTaskHashMap().entrySet()) {
-            System.out.println(" " + task.getValue());
-        }
-        // todo
+        System.out.println("A new task has been created.");
+
     }
 
     public static LocalDate inputDate() {
@@ -138,6 +136,12 @@ public class TaskService {
     public static void checkInputId(Map<Integer, Task> tasks, int id) throws TaskNotFoundException {
         if (!tasks.containsKey(id)) {
             throw new TaskNotFoundException("There is no task with ID = ");
+        }
+    }
+
+    public static void getAllTasks (){
+        for (Map.Entry<Integer, Task> task : getTaskHashMap().entrySet()) {
+            System.out.println(" " + task.getValue());
         }
     }
 }
