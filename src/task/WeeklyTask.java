@@ -1,6 +1,7 @@
 package task;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class WeeklyTask extends Task{
     private final Integer id;
@@ -10,16 +11,15 @@ public class WeeklyTask extends Task{
     }
 
     @Override
-    public boolean appearsIn(LocalDate inputDate, LocalDate dateTime) {
-        return inputDate.getDayOfWeek() == dateTime.getDayOfWeek();
+    public boolean appearsIn(LocalDate date) {
+        return Objects.equals(getDateTime().getDayOfWeek(), date.getDayOfWeek());
     }
 
     @Override
     public String toString() {
-        return  "Weekly task №" + id + ". Title: " + getTitle() +
+        return  "Weekly task. ID = " + id + ". Title: " + getTitle() +
                 "\n Description: " + getDescription() +
                 "\n Date: every " + getDateTime().getDayOfWeek() +
                 "\n Type of task: " + getType().getType() + "\n--------------------";
-
     }
 }
