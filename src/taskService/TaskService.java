@@ -97,9 +97,10 @@ public class TaskService {
 
     public static void getAllByDate (HashMap<Integer, Task> taskHashMap, LocalDate date) {
         int i = 0;
+        System.out.println("The list of tasks for  " + date.getDayOfMonth() + " " + date.getMonth() + " " + date.getYear() + ": \n");
         for (Map.Entry<Integer, Task> task : taskHashMap.entrySet()) {
             LocalDate taskDate = task.getValue().getDateTime();
-            if (taskDate.equals(date) || task.getValue().appearsIn(date, taskDate)) {
+            if (taskDate.equals(date) || task.getValue().appearsIn(date)) {
                 i++;
                 System.out.println(" " + task.getValue());
             }
@@ -140,6 +141,7 @@ public class TaskService {
     }
 
     public static void getAllTasks (){
+        System.out.println("The list of all existing tasks: \n");
         for (Map.Entry<Integer, Task> task : getTaskHashMap().entrySet()) {
             System.out.println(" " + task.getValue());
         }

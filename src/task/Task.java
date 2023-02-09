@@ -33,7 +33,8 @@ public abstract class Task {
             this.dateTime = dateTime;
         } catch (IncorrectDateException e) {
             this.dateTime = LocalDate.now();
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + dateTime.getDayOfMonth() + " " + dateTime.getMonth() + " " + dateTime.getYear());
+            System.out.println("This task will be created with today's date. ");
         }
     }
 
@@ -66,9 +67,9 @@ public abstract class Task {
     }
 
     protected static void checkDate(LocalDate dateTime) throws IncorrectDateException {
-        if (dateTime.getYear() < LocalDate.now().getYear()) {
+        if (dateTime.isBefore(LocalDate.now())) {
             throw new IncorrectDateException("IncorrectDateException! This task can't be created, " +
-                    "because you entered the past time!", dateTime);
+                    "because you entered the past time! ", dateTime);
         }
     }
 
@@ -79,7 +80,7 @@ public abstract class Task {
         }
     }
 
-   public abstract boolean appearsIn(LocalDate inputDate, LocalDate dateTime);
+   public abstract boolean appearsIn(LocalDate date);
 
     @Override
     public abstract String toString();

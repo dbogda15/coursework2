@@ -1,6 +1,8 @@
 package task;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
 public class OneTimeTask extends Task {
 
     private final Integer id;
@@ -10,8 +12,8 @@ public class OneTimeTask extends Task {
     }
 
     @Override
-    public boolean appearsIn(LocalDate inputDate, LocalDate dateTime) {
-        return false;
+    public boolean appearsIn(LocalDate date) {
+        return Objects.equals(getDateTime(), date);
     }
 
     @Override

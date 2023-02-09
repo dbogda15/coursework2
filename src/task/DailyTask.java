@@ -1,6 +1,7 @@
 package task;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class DailyTask extends Task {
     private final Integer id;
@@ -10,7 +11,7 @@ public class DailyTask extends Task {
     }
 
     @Override
-    public boolean appearsIn(LocalDate inputDate, LocalDate dateTime) {
+    public boolean appearsIn(LocalDate date) {
         return true;
     }
 

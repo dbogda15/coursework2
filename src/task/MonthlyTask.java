@@ -1,6 +1,7 @@
 package task;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class MonthlyTask extends Task{
     private final Integer id;
@@ -10,8 +11,8 @@ public class MonthlyTask extends Task{
     }
 
     @Override
-    public boolean appearsIn(LocalDate inputDate, LocalDate dateTime) {
-        return inputDate.getDayOfMonth() == dateTime.getDayOfMonth();
+    public boolean appearsIn(LocalDate date) {
+        return Objects.equals(getDateTime().getDayOfMonth(), date.getDayOfMonth());
     }
 
     @Override
